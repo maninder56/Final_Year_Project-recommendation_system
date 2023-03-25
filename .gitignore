@@ -1,3 +1,11 @@
 .idea
 
 Website/__pycache__/
+
+Website/home/__pycache__/
+
+Website/login/__pycache__/
+
+Website/cart/__pycache__/
+
+Website/about/__pycache__/
