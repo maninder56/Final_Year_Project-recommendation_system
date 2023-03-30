@@ -12,12 +12,32 @@
     {% endwith %}
 
 
-    <P>Please enter your usrname and password:</P>
+    
     <form action="{{login_form}}" method="post">
-        <label for="uname">Username:</label><br>
-        <input type="text" id="uname" name="uname" value="John"><br>
-        <label for="pwd">Password:</label><br>
-        <input type="text" id="pwd" name="pwd" value="password"><br><br>
-        <input type="submit" value="Submit">
+        <h3 align="center">Login</h3>
+        <P align="center">Please enter your username and password:</P>
+        <div class="form-group">
+            <label for="uname">Username:</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="uname" 
+                name="uname" 
+                value="John"
+                placeholder="Enter user name ">
+        </div>
+
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="pwd" name="pwd" 
+                value="password"
+                placeholder="Enter Password">
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">submit</button>
+        
     </form> 
 {% endblock %}
