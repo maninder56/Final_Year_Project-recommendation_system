@@ -13,6 +13,9 @@ from flask import g
 import functools
 import os
 
+
+from access_database import run_query
+
 from flask import Blueprint
 
 login_bp = Blueprint("login", __name__,
@@ -20,10 +23,12 @@ login_bp = Blueprint("login", __name__,
 
 # Login system 
 
+# if POST request is made then run do_the_login function 
+# else show the login page 
 @login_bp.route('/login', methods=['GET', 'POST'])
 def login():
    if request.method == 'POST':
-     return do_the_login(request.form['uname'], request.form['pwd'])
+     return do_the_login(request.form['user_name'], request.form['user_password'])
    else:
       if "user" in session:
          return redirect(url_for('home.home'))
@@ -32,16 +37,24 @@ def login():
 def show_the_login_form():
    return render_template('login.html',login_form=url_for('login.login'))
 
-def do_the_login(u,p):
-   if (p == 'password'):
-      session['user'] = u
-      return redirect(url_for('home.home'))
-   else:
-      abort(403)
+
+# this function checks user name and password againt databse values 
+# and return home page if user exists or returs login page with message 
+# if user does not exists
+def do_the_login(u, p):
+   query = f"SELECT user_name FROM users WHERE user_name='{u}' AND user_password='{p}';"
+   check = run_query.run_query(query)
+   try:
+      if (check[0][0] == u):
+         session['user'] = u
+         return redirect(url_for('home.home'))
+   
+   except:
+      flash('Incorrect username or password', 'alert-danger')
+      return redirect(url_for('login.login'))
 
 
-
-# logout 
+# clear user data from session 
 @login_bp.route('/logout')
 def logout():
     session.pop('user', None) 

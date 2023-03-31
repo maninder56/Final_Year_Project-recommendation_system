@@ -10,3 +10,11 @@ def run_query(query):
     con.close() 
     return data
 
+
+
+# Example 
+#u = 'user1'
+#p = '12345'
+#q = f"SELECT user_name FROM users WHERE user_name='{u}' AND user_password='{p}';"
+
+#print(run_query(q))
