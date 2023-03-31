@@ -15,6 +15,9 @@ import os
 
 from flask import Blueprint
 
+from access_database import run_query
+
+
 home_bp = Blueprint("home", __name__,
                   template_folder="templates")
 
@@ -26,10 +29,9 @@ def home():
        flash(f"logged in as: {session['user']}", "info")
 
     # load books 
-
+    get_books = run_query.run_query("SELECT * FROM books;")
+   
+   
     # button to add books to cart 
 
-
-
-
-    return render_template("home.html")
+    return render_template('home.html', books=get_books)
