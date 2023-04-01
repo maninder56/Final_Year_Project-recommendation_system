@@ -12,13 +12,17 @@ def run_query(query):
     return data
 
 
-
 # Example 
 #e = 'user4@gamil.com'
 #u = 'user4'
 #p = '12345'
-#q = f"INSERT INTO users (user_name, user_password, user_email)\
- #       VALUES ('{u}', '{p}', '{e}');"
+#order_list = [1,3,5]
+#print(order_list)
+#order_list = tuple(order_list)
+#print(order_list)
 
-#print(len(run_query(q)))
+#q = f"SELECT * FROM books WHERE book_id IN {order_list};" 
+#data = run_query(q)
 
+#for i in data:
+#    print(i['book_title'])

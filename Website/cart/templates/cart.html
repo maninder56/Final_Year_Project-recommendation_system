@@ -11,9 +11,24 @@
         {% endif%}
     {% endwith %}
 
+    <main>
+        <section class="content text-center">
+            <h1>Books in your cart</h1> <br>
 
-    <h1>Your Items</h1>
+            <div class="row p-1 m-1">
+            {% for book in books %}
+                <div class="card p-2 m-2" style="width: 18rem;">
+                    <img src="{{book['book_image']}}" class="card-img-top" alt="book_image">
+                    <div class="card-body">
+                      <p class="card-text">{{book['book_title']}}</p>
+                    </div>
 
+                  </div>
+            {% endfor %}
+            </div>
+        </section>
+        
+    </main>
     
     
 {% endblock %}

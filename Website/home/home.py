@@ -31,7 +31,27 @@ def home():
     # load books 
     get_books = run_query.run_query("SELECT * FROM books;")
    
-   
-    # button to add books to cart 
-
     return render_template('home.html', books=get_books)
+
+
+order_list = []
+
+@home_bp.route("/add", methods=['POST'])
+def add_book_to_cart():
+   try:
+      if request.method == 'POST':
+         item = request.form['item']
+         item = int(item)
+         order_list.append(item)
+         session['items'] = order_list
+
+   except:
+         flash(f"Error While adding item to cart","info")
+         return redirect(url_for('home.home'))
+
+
+   finally:
+      flash(f"Items in cart: {len(session['items'])}","info")
+      return redirect(url_for('home.home'))
+
+

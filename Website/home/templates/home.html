@@ -23,6 +23,15 @@
                     <div class="card-body">
                       <p class="card-text">{{book['book_title']}}</p>
                     </div>
+
+                    <form action="/add" method="post">
+                        <button class="btn btn-dark"
+                                id="item" 
+                                name="item" 
+                                type="submit" 
+                                value= {{ book['book_id'] }}
+                                > Add to cart </button>
+                    </form><br>
                   </div>
             {% endfor %}
             </div>
@@ -33,4 +42,5 @@
 
     
     
+
 {% endblock %}
