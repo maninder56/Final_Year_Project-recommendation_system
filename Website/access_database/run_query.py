@@ -14,8 +14,11 @@ def run_query(query):
 
 
 # Example 
-#u = 'user1'
+#e = 'user4@gamil.com'
+#u = 'user4'
 #p = '12345'
-#q = f"SELECT user_name FROM users WHERE user_name='{u}' AND user_password='{p}';"
+#q = f"INSERT INTO users (user_name, user_password, user_email)\
+ #       VALUES ('{u}', '{p}', '{e}');"
 
-#print(run_query(q))
+#print(len(run_query(q)))
+
