@@ -40,7 +40,16 @@ def cart():
         return redirect(url_for('home.home'))
     
 
-
+@cart_bp.route('/empty')
+def empty_cart():
+    try:
+        order_list.clear()
+        session.pop('items',None)
+        flash("Cart Cleared","info") 
+        return redirect(url_for('cart.cart'))
+    
+    except Exception as e:
+        print(e)
 
 
 
