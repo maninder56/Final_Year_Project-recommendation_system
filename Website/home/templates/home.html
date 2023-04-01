@@ -16,12 +16,14 @@
             <h1>Welcome {{session['user']}} to Book Shop</h1>
             <p>please select any book that you like to purchase</p> <br>
 
-            <div class="row row-cols-3">
+            <div class="row p-1 m-1">
             {% for book in books %}
-                <div class="col">
-                    <p class="text-center">{{book['book_title']}}</p>
-                    <img class="mx-auto d-block img-thumbnail img-fluid" src="{{book['book_image']}}">
-                </div>
+                <div class="card p-2 m-2" style="width: 18rem;">
+                    <img src="{{book['book_image']}}" class="card-img-top" alt="book_image">
+                    <div class="card-body">
+                      <p class="card-text">{{book['book_title']}}</p>
+                    </div>
+                  </div>
             {% endfor %}
             </div>
         </section>
