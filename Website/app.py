@@ -16,6 +16,7 @@ import os
 # import different section of website 
 from home.home import home_bp
 from login.login import login_bp
+from sign_up.sign_up import sign_up_bp
 from cart.cart import cart_bp
 from about.about import about_bp
 
@@ -25,6 +26,7 @@ app.secret_key = 'book_shop'
 
 app.register_blueprint(home_bp)
 app.register_blueprint(login_bp)
+app.register_blueprint(sign_up_bp)
 app.register_blueprint(cart_bp)
 app.register_blueprint(about_bp)
 
@@ -32,3 +34,5 @@ app.register_blueprint(about_bp)
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+    
