@@ -31,7 +31,8 @@
                         <img src="{{book['Image-URL-L']}}" class="card-img-top" alt="book_image">
                         <div class="card-body">
                           <p class="card-text">{{book['Book-Title']}}</p>
-                          <p class="card-text">By {{book['Book-Author']}}</p>
+                          <p class="card-text">By {{book['Book-Author']}}</p> 
+                          <p class="card-text">Year: {{book['Year-Of-Publication']}}</p> 
                         </div>
                     </div>
                 {% endfor %}
@@ -48,6 +49,8 @@
                         <img src="{{book['Image-URL-L']}}" class="card-img-top" alt="book_image">
                         <div class="card-body">
                           <p class="card-text">{{book['Book-Title']}}</p>
+                          <p class="card-text">By {{book['Book-Author']}}</p>
+                          <p class="card-text">Year: {{book['Year-Of-Publication']}}</p> 
                         </div>
                     </div>
                 {% endfor %}
