@@ -15,13 +15,35 @@
         <section class="content text-center">
             <h1> Search </h1>
             <br>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" action="search" method="post">
+                <input class="form-control me-2" 
+                        type="search" 
+                        name="searched"
+                        value="Lightning"
+                        placeholder="Search" 
+                        aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            </form> <br>
 
             <div class="row p-1 m-1">
-                {% for book in popular %}
+                {% for book in searched_book %}
+                    <div class="card p-2 m-2" style="width: 18rem;">
+                        <img src="{{book['Image-URL-L']}}" class="card-img-top" alt="book_image">
+                        <div class="card-body">
+                          <p class="card-text">{{book['Book-Title']}}</p>
+                          <p class="card-text">By {{book['Book-Author']}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <br><br><br>
+            </div>
+
+            <p>{{ book_not_found }}</p>
+
+
+            <div class="row p-1 m-1">
+                <h2>Similar books that you may like</h2>
+                {% for book in recommend %}
                     <div class="card p-2 m-2" style="width: 18rem;">
                         <img src="{{book['Image-URL-L']}}" class="card-img-top" alt="book_image">
                         <div class="card-body">
@@ -30,7 +52,7 @@
                     </div>
                 {% endfor %}
                 <br><br><br>
-                </div>
+            </div>
         </section>
         
     </main>

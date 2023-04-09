@@ -23,6 +23,7 @@
                         <img src="{{book['Image-URL-L']}}" class="card-img-top" alt="book_image">
                         <div class="card-body">
                           <p class="card-text">{{book['Book-Title']}}</p>
+                          <p class="card-text">By {{book['Book-Author']}}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -37,6 +38,7 @@
                     <img src="{{book['book_image']}}" class="card-img-top" alt="book_image">
                     <div class="card-body">
                       <p class="card-text">{{book['book_title']}}</p>
+                      <p class="card-text">By {{book['book_author']}}</p>
                     </div>
 
                     <form action="/add" method="post">

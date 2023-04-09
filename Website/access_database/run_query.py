@@ -20,9 +20,14 @@ def run_query(query):
 #print(order_list)
 #order_list = tuple(order_list)
 #print(order_list)
+#title = ["Lightning", "False Memory", "The Jester"]
+#title = tuple(title)
+#print(title)
+#q = f"""SELECT * FROM colloborative_filtering_book_data WHERE "Book-Title" In {title} LIMIT 4;"""
 
-#q = f"SELECT * FROM books WHERE book_id IN {order_list};" 
 #data = run_query(q)
 
 #for i in data:
-#    print(i['book_title'])
+ #   print(i['Book-Title'])
+
+#print("finish")
