@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif%}
+    {% endwith %}
+
+    <main>
+        <section class="content text-center">
+            <h1> Search </h1>
+            <br>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+            <div class="row p-1 m-1">
+                {% for book in popular %}
+                    <div class="card p-2 m-2" style="width: 18rem;">
+                        <img src="{{book['Image-URL-L']}}" class="card-img-top" alt="book_image">
+                        <div class="card-body">
+                          <p class="card-text">{{book['Book-Title']}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <br><br><br>
+                </div>
+        </section>
+        
+    </main>
+    
+
+    
+    
+
+{% endblock %}
