@@ -30,8 +30,10 @@ def home():
 
     # load books 
     get_books = run_query.run_query("SELECT * FROM books;")
-   
-    return render_template('home.html', books=get_books)
+
+    popular_books = run_query.run_query("SELECT * FROM popular_books LIMIT 8 ;")
+
+    return render_template('home.html', popular=popular_books, books=get_books)
 
 
 order_list = []

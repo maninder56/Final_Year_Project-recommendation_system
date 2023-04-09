@@ -17,6 +17,21 @@
             <p>please select any book that you like to purchase</p> <br>
 
             <div class="row p-1 m-1">
+                <h3>Popular Books</h3>
+                {% for book in popular %}
+                    <div class="card p-2 m-2" style="width: 18rem;">
+                        <img src="{{book['Image-URL-L']}}" class="card-img-top" alt="book_image">
+                        <div class="card-body">
+                          <p class="card-text">{{book['Book-Title']}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+
+
+                <br>
+            <div class="row p-1 m-1">
+                <h3>All Books</h3>
             {% for book in books %}
                 <div class="card p-2 m-2" style="width: 18rem;">
                     <img src="{{book['book_image']}}" class="card-img-top" alt="book_image">
@@ -32,7 +47,7 @@
                                 value= {{ book['book_id'] }}
                                 > Add to cart </button>
                     </form><br>
-                  </div>
+                </div>
             {% endfor %}
             </div>
         </section>
