@@ -6,13 +6,6 @@ import seaborn as sns
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-
-
-# content based filtering ------------------------------------------------
-
-
-
-
 # Load Data into data frame 
 # Data Source: https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset
 books = pd.read_csv('Website/recomender/Books.csv')
@@ -54,4 +47,4 @@ def recommend(books_name):
     return books
 
 
-print("Finish ---------------------------------------")
+print("Finished Processing ---------------------------------------")
