@@ -34,6 +34,14 @@
                           <p class="card-text">By {{book['Book-Author']}}</p> 
                           <p class="card-text">Year: {{book['Year-Of-Publication']}}</p> 
                         </div>
+                        <form action="/add" method="post">
+                            <button class="btn btn-dark"
+                                    id="item" 
+                                    name="item" 
+                                    type="submit" 
+                                    value= {{book['ISBN']}}
+                                    > Add to cart </button>
+                        </form><br>
                     </div>
                 {% endfor %}
                 <br><br><br>
@@ -52,6 +60,15 @@
                           <p class="card-text">By {{book['Book-Author']}}</p>
                           <p class="card-text">Year: {{book['Year-Of-Publication']}}</p> 
                         </div>
+
+                        <form action="/add" method="post">
+                            <button class="btn btn-dark"
+                                    id="item" 
+                                    name="item" 
+                                    type="submit" 
+                                    value= {{book['ISBN']}}
+                                    > Add to cart </button>
+                        </form><br>
                     </div>
                 {% endfor %}
                 <br><br><br>

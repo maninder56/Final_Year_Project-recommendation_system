@@ -39,14 +39,12 @@ def do_search(title):
       # get recomended books 
       colloborative_filtering = recomender.recommend(title)
       colloborative_filtering = tuple(colloborative_filtering)
-      print(colloborative_filtering)
 
-      query = f"""SELECT * FROM colloborative_filtering_book_data WHERE "Book-Title" = "{title}" LIMIT 3;"""
-      query2 = f"""SELECT * FROM colloborative_filtering_book_data WHERE "Book-Title" In {colloborative_filtering} LIMIT 5;"""
+      query = f"""SELECT * FROM filtering_book_data WHERE "Book-Title" = "{title}" LIMIT 3;"""
+      query2 = f"""SELECT * FROM filtering_book_data WHERE "Book-Title" In {colloborative_filtering} LIMIT 5;"""
       book = run_query.run_query(query)
       recommend_books = run_query.run_query(query2)
       if book[0] != None:
-         print(book)
          return render_template('search.html',searched_book=book, recommend=recommend_books)
       
    except Exception as e:

@@ -25,6 +25,16 @@
                           <p class="card-text">{{book['Book-Title']}}</p>
                           <p class="card-text">By {{book['Book-Author']}}</p>
                         </div>
+
+                        <form action="/add" method="post">
+                            <button class="btn btn-dark"
+                                    id="item" 
+                                    name="item" 
+                                    type="submit" 
+                                    value= {{book['ISBN']}}
+                                    > Add to cart </button>
+                        </form><br>
+                        
                     </div>
                 {% endfor %}
                 </div>
@@ -35,10 +45,10 @@
                 <h3>All Books</h3>
             {% for book in books %}
                 <div class="card p-2 m-2" style="width: 18rem;">
-                    <img src="{{book['book_image']}}" class="card-img-top" alt="book_image">
+                    <img src="{{book['Image-URL-L']}}" class="card-img-top" alt="book_image">
                     <div class="card-body">
-                      <p class="card-text">{{book['book_title']}}</p>
-                      <p class="card-text">By {{book['book_author']}}</p>
+                      <p class="card-text">{{book['Book-Title']}}</p>
+                      <p class="card-text">By {{book['Book-Author']}}</p>
                     </div>
 
                     <form action="/add" method="post">
@@ -46,7 +56,7 @@
                                 id="item" 
                                 name="item" 
                                 type="submit" 
-                                value= {{ book['book_id'] }}
+                                value= {{book['ISBN']}}
                                 > Add to cart </button>
                     </form><br>
                 </div>

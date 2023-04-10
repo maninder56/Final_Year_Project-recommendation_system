@@ -29,7 +29,7 @@ def home():
        flash(f"logged in as: {session['user']}", "info")
 
     # load books 
-    get_books = run_query.run_query("SELECT * FROM books;")
+    get_books = run_query.run_query("SELECT * FROM filtering_book_data LIMIT 20;")
 
     popular_books = run_query.run_query("SELECT * FROM popular_books LIMIT 8 ;")
 
@@ -43,7 +43,6 @@ def add_book_to_cart():
    try:
       if request.method == 'POST':
          item = request.form['item']
-         item = int(item)
          order_list.append(item)
          session['items'] = order_list
 
@@ -53,7 +52,6 @@ def add_book_to_cart():
 
 
    finally:
-      flash(f"Items in cart: {len(session['items'])}","info")
       return redirect(url_for('home.home'))
 
 

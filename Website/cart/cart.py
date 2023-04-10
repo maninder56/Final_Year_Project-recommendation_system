@@ -23,11 +23,10 @@ cart_bp = Blueprint("cart", __name__,
 
 @cart_bp.route("/cart")
 def cart():
-    tuple_list = tuple(order_list)
-    print(tuple_list)
+    item_list = tuple(order_list)
 
     try:
-        query = f"SELECT * FROM books WHERE book_id IN {tuple_list};" 
+        query = f"""SELECT * FROM filtering_book_data WHERE "ISBN" In {item_list} ;"""
         cart_items = run_query.run_query(query)
         if len(cart_items) == 0:
             flash("Cart Emplty", "info")
